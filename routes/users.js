@@ -1,8 +1,10 @@
 const express = require('express');
 const router = express.Router();
+const users = require("../public/data/users.json");
+
 
 router.get('/', function (req, res, next) {
-  res.send("hello Users");
+  res.json(users);
 });
 router.post('/', (req, res, next) => {
   res.send('Got a POST Users request');
