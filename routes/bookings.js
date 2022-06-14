@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const bookings = require("../public/data/booking.json");
+const {
+  getBookedRoom,
 
-router.get('/', function (req, res, next) {
-  res.json(bookings)
-});
+} = require('../controllers/bookings.js');
+router.get('/', getBookedRoom);
 router.get('/:id', function (req, res, next) {
   res.send('Read route : ' + req.params.id)
   // res.json(bookings)
