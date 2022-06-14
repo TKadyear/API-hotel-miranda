@@ -1,12 +1,11 @@
 const express = require("express");
 const router = express.Router();
-const { createContact, getContact, getSpecificContact, updateContact, deleteContact
-} = require("../controllers/bookings.js");
+const contact = require("../controllers/contact.js");
 
 
-router.get("/", getContact);
-router.get("/:id", getSpecificContact);
-router.post("/", createContact);
-router.put("/:id", updateContact);
-router.delete("/:id", deleteContact);
+router.get("/", contact.getContact);
+router.get("/:id", contact.getSpecificContact);
+router.post("/", contact.createContact);
+router.put("/:id", contact.updateContact);
+router.delete("/:id", contact.deleteContact);
 module.exports = router;
