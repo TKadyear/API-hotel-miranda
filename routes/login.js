@@ -1,19 +1,19 @@
-const express = require('express');
-const passport = require('passport');
-const jwt = require('jsonwebtoken');
+const express = require("express");
+const passport = require("passport");
+const jwt = require("jsonwebtoken");
 const router = express.Router();
 
 
 router.post(
-  '/',
+  "/",
   async (req, res, next) => {
     passport.authenticate(
-      'login',
+      "login",
       async (err, user, info) => {
         try {
           if (err || !user) {
-            const error = new Error('An error occurred.');
-
+            const error = new Error("An error occurred.");
+            console.log(info);
             return next(error);
           }
 
@@ -24,7 +24,7 @@ router.post(
               if (error) return next(error);
 
               const body = { _id: user._id, email: user.email };
-              const token = jwt.sign({ user: body }, 'TOP_SECRET');
+              const token = jwt.sign({ user: body }, "TOP_SECRET");
 
               return res.json({ token });
             }
