@@ -1,22 +1,13 @@
 const express = require("express");
 const router = express.Router();
-const users = require("../public/data/users.json");
+const { createUser, getUser, getSpecificUser, updateUser, deleteUser
+} = require("../controllers/bookings.js");
 
 
-router.get("/", function (req, res) {
-  res.json(users);
-});
-router.get("/:id", function (req, res) {
-  res.send("Read route : " + req.params.id);
-});
-router.post("/", (req, res) => {
-  res.send("Got a POST Users request");
-});
-router.put("/:id", (req, res) => {
-  res.send("Update route : " + req.params.id);
-});
-router.delete("/:id", (req, res) => {
-  res.send("Delete route : " + req.params.id);
-});
+router.get("/", getUser);
+router.get("/:id", getSpecificUser);
+router.post("/", createUser);
+router.put("/:id", updateUser);
+router.delete("/:id", deleteUser);
 
 module.exports = router;
