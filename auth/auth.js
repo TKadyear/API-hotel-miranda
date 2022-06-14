@@ -1,12 +1,12 @@
-const passport = require('passport');
-const JWTstrategy = require('passport-jwt').Strategy;
-const ExtractJWT = require('passport-jwt').ExtractJwt;
+const passport = require("passport");
+const JWTstrategy = require("passport-jwt").Strategy;
+const ExtractJWT = require("passport-jwt").ExtractJwt;
 
 passport.use(
   new JWTstrategy(
     {
-      secretOrKey: 'TOP_SECRET',
-      jwtFromRequest: ExtractJWT.fromUrlQueryParameter('secret_token')
+      secretOrKey: "TOP_SECRET",
+      jwtFromRequest: ExtractJWT.fromUrlQueryParameter("secret_token")
     },
     async (token, done) => {
       try {
