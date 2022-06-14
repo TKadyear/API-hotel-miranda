@@ -4,10 +4,14 @@ module.exports = {
         "commonjs": true,
         "es2021": true
     },
-    "extends": "eslint:recommended",
+    "extends": [
+        "plugin:jest/recommended",
+        "eslint:recommended"
+    ],
     "parserOptions": {
         "ecmaVersion": "latest"
     },
+    "plugins": ["jest"],
     "rules": {
         "linebreak-style": [
             "error",
